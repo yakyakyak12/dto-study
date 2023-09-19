@@ -1,6 +1,9 @@
 package com.example.kakao.product;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
+import com.example.kakao.product.option.Option;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -19,12 +22,12 @@ public class ProductResponse {
         private String productName;
         private int price;
 
-        public FindAllDTO(Integer productId, Integer delivery, String image, String productName, int price) {
-            this.productId = productId;
-            this.delivery = delivery;
-            this.image = image;
-            this.productName = productName;
-            this.price = price;
+        public FindAllDTO(Product product) {
+            this.productId = product.getId();
+            this.delivery = 1;
+            this.image = product.getImage();
+            this.productName = product.getProductName();
+            this.price = product.getPrice();
         }        
     }
 
@@ -40,29 +43,28 @@ public class ProductResponse {
         private int startCount;
         private List<OptionDTO> options;
 
-        public FindByIdDTO(Integer productId, String productName, String image, int price, int startCount,
-                List<OptionDTO> options) {
-            this.productId = productId;
-            this.productName = productName;
-            this.image = image;
-            this.price = price;
-            this.startCount = startCount;
-            this.options = options;
+        public FindByIdDTO(Product product, List<Option> optionList) {
+            this.productId = product.getId();
+            this.productName = product.getProductName();
+            this.image = product.getImage();
+            this.price = product.getPrice();
+            this.startCount = 4;
+            this.options = optionList.stream().map(OptionDTO::new).collect(Collectors.toList());
         }        
-    }
+        
+            @ToString
+            @Getter
+            @Setter
+            public static class OptionDTO{
+            private Integer optionId;
+            private String optionName;
+            private int optionPrice;
 
-    @ToString
-    @Getter
-    @Setter
-    public static class OptionDTO{
-        private Integer optionId;
-        private String optionName;
-        private int optionPrice;
-
-        public OptionDTO(Integer optionId, String optionName, int optionPrice) {
-            this.optionId = optionId;
-            this.optionName = optionName;
-            this.optionPrice = optionPrice;
-        }      
-    }
+            public OptionDTO(Option option) {
+                this.optionId = option.getId();
+                this.optionName = option.getOptionName();
+                this.optionPrice = option.getPrice();
+            }      
+        }
+    }    
 }
