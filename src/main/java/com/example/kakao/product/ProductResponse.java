@@ -49,8 +49,10 @@ public class ProductResponse {
             this.image = product.getImage();
             this.price = product.getPrice();
             this.startCount = 4;
-            this.options = optionList.stream().map(OptionDTO::new).collect(Collectors.toList());
-        }        
+            this.options = optionList.stream()
+                                        .map(option -> new OptionDTO(option))
+                                        .collect(Collectors.toList());
+        }         
         
             @ToString
             @Getter
