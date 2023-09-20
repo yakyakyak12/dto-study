@@ -67,3 +67,5 @@ INSERT INTO option_tb (`id`,`product_id`,`option_name`,`price`) VALUES ('48', '1
 
 INSERT INTO cart_tb (`id`,`user_id`,`option_id`,`quantity`,`price`) VALUES ('1', '1', '1', '2', '20000');
 INSERT INTO cart_tb (`id`,`user_id`,`option_id`,`quantity`,`price`) VALUES ('2', '1', '2', '1', '10900');
+INSERT INTO cart_tb (`id`,`user_id`,`option_id`,`quantity`,`price`) VALUES ('3', '1', '6', '1', '9900');
+INSERT INTO cart_tb (`id`,`user_id`,`option_id`,`quantity`,`price`) VALUES ('4', '1', '7', '1', '14500');
