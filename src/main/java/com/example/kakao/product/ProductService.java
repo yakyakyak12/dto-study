@@ -21,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class ProductService {
 
-    private final ProductJPARepository productJPARepository;
+    private final ProductJPARepository productJPARepository; // 쟈바에서 final 변수는 반드시 초기화되어야 함.
     private final OptionJPARepository optionJPARepository;
 
     // (기능1) 상품 목록보기

@@ -69,3 +69,11 @@ INSERT INTO cart_tb (`id`,`user_id`,`option_id`,`quantity`,`price`) VALUES ('1',
 INSERT INTO cart_tb (`id`,`user_id`,`option_id`,`quantity`,`price`) VALUES ('2', '1', '2', '1', '10900');
 INSERT INTO cart_tb (`id`,`user_id`,`option_id`,`quantity`,`price`) VALUES ('3', '1', '6', '1', '9900');
 INSERT INTO cart_tb (`id`,`user_id`,`option_id`,`quantity`,`price`) VALUES ('4', '1', '7', '1', '14500');
+
+INSERT INTO order_tb (`id`,`user_id`) VALUES ('1', '1');
+
+INSERT INTO item_tb (`id`,`option_id`,`order_id`,`quantity`,`price`) VALUES ('1', '1', '1', '2', '20000');
+INSERT INTO item_tb (`id`,`option_id`,`order_id`,`quantity`,`price`) VALUES ('2', '2', '1', '1', '10900');
+INSERT INTO item_tb (`id`,`option_id`,`order_id`,`quantity`,`price`) VALUES ('3', '6', '1', '1', '9900');
+INSERT INTO item_tb (`id`,`option_id`,`order_id`,`quantity`,`price`) VALUES ('4', '7', '1', '1', '14500');
+
