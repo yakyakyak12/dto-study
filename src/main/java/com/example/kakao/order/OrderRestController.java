@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 public class OrderRestController {
 
     private final HttpSession session;
-    private OrderService orderService;
+    private final OrderService orderService;
 
     // 결재하기 - (주문 인서트)
     @PostMapping("/orders/save")
