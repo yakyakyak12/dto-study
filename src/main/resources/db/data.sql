@@ -64,3 +64,6 @@ INSERT INTO option_tb (`id`,`product_id`,`option_name`,`price`) VALUES ('45', '1
 INSERT INTO option_tb (`id`,`product_id`,`option_name`,`price`) VALUES ('46', '14', '[특품] 샤인머스켓 2kg 2-3수', '23900');
 INSERT INTO option_tb (`id`,`product_id`,`option_name`,`price`) VALUES ('47', '15', '화이트', '148000');
 INSERT INTO option_tb (`id`,`product_id`,`option_name`,`price`) VALUES ('48', '15', '블랙', '148000');
+
+INSERT INTO cart_tb (`id`,`user_id`,`option_id`,`quantity`,`price`) VALUES ('1', '1', '1', '2', '20000');
+INSERT INTO cart_tb (`id`,`user_id`,`option_id`,`quantity`,`price`) VALUES ('2', '1', '2', '1', '10900');
