@@ -25,9 +25,9 @@ public class OrderService {
     private final CartJPARepository cartJPARepository;
 
     // (기능4) 주문상품 정보조회 (유저별) - CartJPARepository의 정보를 조회해야함
-    public OrderResponse.FindAllByUserDTO findAllByUser(User sessionUser) {
-
-        return null;
+    public OrderResponse.FindAllByUserDTO findAllByUser(Integer id) {
+        List<Cart> cart = cartJPARepository.findByUserId(id);
+        return new OrderResponse.FindAllByUserDTO(cart);
     }
 
     // (기능5) 주문결과 확인

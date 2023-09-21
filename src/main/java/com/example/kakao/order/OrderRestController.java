@@ -1,5 +1,7 @@
 package com.example.kakao.order;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.http.ResponseEntity;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.kakao._core.errors.exception.Exception401;
 import com.example.kakao._core.utils.ApiUtils;
+import com.example.kakao.cart.Cart;
+import com.example.kakao.order.OrderResponse.FindAllByUserDTO;
 import com.example.kakao.user.User;
 
 import lombok.RequiredArgsConstructor;
@@ -41,8 +45,8 @@ public class OrderRestController {
     // (기능4) 주문상품 정보조회 (유저별) - 장바구니 내역 가져오기
     @GetMapping("/orders")
     public ResponseEntity<?> findAllByUser() {
-
-        return null;
+        FindAllByUserDTO carts = orderService.findAllByUser(1);
+        return ResponseEntity.ok(ApiUtils.success(carts));
     }
 
 }
