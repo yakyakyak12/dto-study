@@ -14,6 +14,7 @@ import com.example.kakao._core.errors.exception.Exception401;
 import com.example.kakao._core.utils.ApiUtils;
 import com.example.kakao.cart.Cart;
 import com.example.kakao.order.OrderResponse.FindAllByUserDTO;
+import com.example.kakao.order.OrderResponse.FindByIdDTO;
 import com.example.kakao.user.User;
 
 import lombok.RequiredArgsConstructor;
@@ -39,7 +40,8 @@ public class OrderRestController {
     // (기능5) 주문결과 확인
     @GetMapping("/orders/{id}")
     public ResponseEntity<?> findById(@PathVariable Integer id) {
-        return null;
+        FindByIdDTO items = orderService.findById(1);
+        return ResponseEntity.ok(ApiUtils.success(items));
     }
 
     // (기능4) 주문상품 정보조회 (유저별) - 장바구니 내역 가져오기

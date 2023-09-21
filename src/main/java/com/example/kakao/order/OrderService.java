@@ -32,7 +32,8 @@ public class OrderService {
 
     // (기능5) 주문결과 확인
     public OrderResponse.FindByIdDTO findById(int id) {
-        return null;
+        List<Item> items = ItemJPARepository.findByOrderId(id);
+        return new OrderResponse.FindByIdDTO(items);
     }
 
     @Transactional
