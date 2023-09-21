@@ -1,6 +1,7 @@
 package com.example.kakao.product;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.data.domain.Page;
@@ -35,8 +36,9 @@ public class ProductService {
     }
 
     // (기능2) 상품 상세보기
-    public ProductResponse.FindByIdDTO findById(int id) {
-
-        return null;
+    public ProductResponse.FindByIdDTO findById(Integer id) {
+        Product product = productJPARepository.findById(id)
+                .orElseThrow(() -> new Exception404("해당 상품을 찾을 수 없습니다."));
+        return new ProductResponse.FindByIdDTO(product);
     }
 }

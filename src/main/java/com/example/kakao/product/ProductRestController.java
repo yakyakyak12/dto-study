@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.kakao._core.utils.ApiUtils;
+import com.example.kakao.product.ProductResponse.FindByIdDTO;
 
 import lombok.RequiredArgsConstructor;
 
@@ -28,7 +29,7 @@ public class ProductRestController {
     // (기능2) 상품 상세보기
     @GetMapping("/products/{id}")
     public ResponseEntity<?> findById(@PathVariable int id) {
-
-        return null;
+        FindByIdDTO product = productService.findById(id);
+        return ResponseEntity.ok(ApiUtils.success(product));
     }
 }
