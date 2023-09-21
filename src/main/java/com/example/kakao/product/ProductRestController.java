@@ -21,8 +21,8 @@ public class ProductRestController {
     // (기능1) 상품 목록보기
     @GetMapping("/products")
     public ResponseEntity<?> findAll(@RequestParam(value = "page", defaultValue = "0") Integer page) {
-
-        return null;
+        List<ProductResponse.FindAllDTO> responsDTOs = productService.findAll(page);
+        return ResponseEntity.ok(ApiUtils.success(responsDTOs));
     }
 
     // (기능2) 상품 상세보기
